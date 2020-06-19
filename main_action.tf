@@ -15,7 +15,7 @@ resource "aws_instance" "hashcat-machine" {
 
   /* This local exec is just for convenience and opens the ssh sessio. */
   provisioner "local-exec" {
-    command = "echo putty -ssh ubuntu@${aws_instance.hashcat-machine.public_ip} 22 -i '${var.ssh_key_path}'"
+    command = "echo ssh -i '${var.ssh_key_path}' ubuntu@${aws_instance.hashcat-machine.public_ip}"
   }
 }
 
